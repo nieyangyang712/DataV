@@ -1,6 +1,6 @@
 <template>
   <div class="dv-border-box-8" :ref="ref">
-    <svg class="dv-svg-container" :width="width" :height="height">
+    <svg class="dv-border-svg-container" :width="width" :height="height">
       <defs>
         <path
           :id="path"
@@ -65,6 +65,7 @@
 
 <script>
 import autoResize from '../../../mixin/autoResize'
+import { uuid } from '../../../util/index'
 
 import { deepMerge } from '@jiaminghi/charts/lib/util/index'
 
@@ -92,12 +93,12 @@ export default {
     }
   },
   data () {
-    const timestamp = Date.now()
+    const id = uuid()
     return {
       ref: 'border-box-8',
-      path: `border-box-8-path-${timestamp}`,
-      gradient: `border-box-8-gradient-${timestamp}`,
-      mask: `border-box-8-mask-${timestamp}`,
+      path: `border-box-8-path-${id}`,
+      gradient: `border-box-8-gradient-${id}`,
+      mask: `border-box-8-mask-${id}`,
 
       defaultColor: ['#235fa7', '#4fd2dd'],
 
@@ -146,7 +147,7 @@ export default {
   width: 100%;
   height: 100%;
 
-  svg {
+  .dv-border-svg-container {
     position: absolute;
     width: 100%;
     height: 100%;
